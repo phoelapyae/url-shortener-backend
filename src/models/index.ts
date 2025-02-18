@@ -4,11 +4,11 @@ import URL from "./shortener";
 const syncDB = async () => {
     try {
         await sequelize.authenticate();
-        console.log('Database connected.');
+        console.log('Database was connected.');
         await sequelize.sync({ alter: true });
-        console.log('Database synchronized.');
+        console.log('Database aws synchronized.');
     } catch (error) {
-        console.log('Database connection error ', error);
+        console.log('Connection error ', error);
     }
 }
 

@@ -3,8 +3,12 @@ const router = Router();
 
 const shortenerController = require("../controllers/shortener.controller");
 
-router.post("/shorteners", shortenerController.createUrl);
+router.get("/shorteners", shortenerController.GetAll);
 
-router.get("/shorteners/:short_url", shortenerController.redirectUrl);
+router.post("/shorteners", shortenerController.GenerateUrl);
+
+router.delete("/shorteners/:id", shortenerController.DeleteUrl);
+
+router.get("/shorteners/:short_url", shortenerController.RedirectUrl);
 
 export default router;
