@@ -1,5 +1,4 @@
 import { Response } from "express";
-// import { nanoid } from "nanoid";
 import URL from "../models/shortener";
 import { nanoid } from "../utils/nanoid";
 const HOST = process.env.HOST as string;
@@ -21,7 +20,6 @@ const getByLongUrl = async (long_url: string) => {
 }
 
 const createUrl = async (long_url: string) => {
-    // const short_url = nanoid(6);
     const short_url = nanoid();
 
     return await URL.create({ short_url, long_url });

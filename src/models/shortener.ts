@@ -17,7 +17,7 @@ URL.init(
         short_url: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true
+            unique: true,
         },
         long_url: {
             type: DataTypes.STRING,

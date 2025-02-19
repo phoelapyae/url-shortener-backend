@@ -47,9 +47,38 @@ const handleExist = function (data: any) {
     })
 }
 
+const handleCheckUrl = (url: string) => {
+
+    return new Promise((resolve, reject) => {
+        if (url == null || url == "" || !checkUrl(url))
+        {
+            reject({
+                "status": 400,
+                "error": "Invalid url.",
+            });
+        }
+        else
+        {
+            resolve(url);
+        }
+    });
+}
+
+const checkUrl = (url: string) => {
+    try {
+        new URL(url);
+        return true;
+    }
+    catch (e)
+    {
+        return false;
+    }
+}
+
 export {
     handleSuccess,
     handleError,
     handleNotFound,
-    handleExist
+    handleExist,
+    handleCheckUrl
 }
