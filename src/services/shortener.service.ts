@@ -1,7 +1,7 @@
 import { Response } from "express";
 // import { nanoid } from "nanoid";
 import URL from "../models/shortener";
-import nanoid from "../utils/nanoid";
+import { nanoid } from "../utils/nanoid";
 const HOST = process.env.HOST as string;
 
 const urlList = () => {

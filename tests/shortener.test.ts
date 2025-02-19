@@ -1,9 +1,10 @@
 import request from 'supertest';
+import { nanoid } from "../src/utils/nanoid";
 import URL from "../src/models/shortener";
 import app from "../src/app";
 
 const newUrl = {
-    'short_url': '123456',
+    'short_url': nanoid(),
     'long_url': 'https://www.bbc.com/'
 }
 
