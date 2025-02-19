@@ -22,6 +22,7 @@ test('should generate a new short url', async() => {
         .send({ long_url: newUrl.long_url });
 
     expect(response.status).toBe(200);
+
     expect(response.body).toHaveProperty('data');
 })
 
@@ -40,9 +41,13 @@ test('should redirect to long url', async() => {
     expect(response.header.location).toBe(newUrl.long_url);
 })
 
-// test('should be deleted', async() => {
-//     const response = await request(app)
-//         .delete(`/api/shorteners/1`)
+test('should be deleted', async() => {
+    const url = await URL.findOne({
+        where: { long_url: newUrl.long_url }
+    });
+
+    const response = await request(app)
+        .delete(`/api/shorteners/${url?.id}`)
     
-//     expect(response.status).toBe(200);
-// })
+    expect(response.status).toBe(200);
+})
