@@ -18,10 +18,10 @@ beforeEach(async () => {
 test('should generate a new short url', async() => {
     const response = await request(app)
         .post('/api/shorteners')
-        .send({ long_url: 'https://www.bbc.com/' });
+        .send({ long_url: newUrl.long_url });
 
     expect(response.status).toBe(200);
-    expect(response.body).toHaveProperty('short_url');
+    expect(response.body).toHaveProperty('data');
 })
 
 test('should return a list of urls', async() => {
@@ -33,10 +33,10 @@ test('should return a list of urls', async() => {
 
 test('should redirect to long url', async() => {
     const response = await request(app)
-        .get(`/api/shorteners/123456`);
+        .get(`/api/shorteners/${newUrl.short_url}`);
     
     expect(response.status).toBe(302);
-    expect(response.header.location).toBe('https://www.bbc.com/');
+    expect(response.header.location).toBe(newUrl.long_url);
 })
 
 // test('should be deleted', async() => {
