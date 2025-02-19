@@ -1,3 +1,4 @@
+import { Response } from "express";
 import URL from "../models/shortener";
 
 const urlList = () => {
@@ -10,6 +11,10 @@ const getById = async (id: string) => {
 
 const deleteById = (id: string) => {
    return URL.destroy({where: { id }});
+}
+
+const redirectUrl = (res: Response, url: any) => {
+    res.redirect(url.long_url);
 }
 
 export {
