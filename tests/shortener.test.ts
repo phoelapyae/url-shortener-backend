@@ -14,7 +14,7 @@ beforeEach(async () => {
     });
 
     await URL.create(newUrl);
-});
+}, 5000);
 
 test('should generate a new short url', async() => {
     const response = await request(app)
@@ -35,7 +35,7 @@ test('should return a list of urls', async() => {
 
 test('should redirect to long url', async() => {
     const response = await request(app)
-        .get(`/api/shorteners/${newUrl.short_url}`);
+        .get(`/api/${newUrl.short_url}`);
     
     expect(response.status).toBe(302);
     expect(response.header.location).toBe(newUrl.long_url);
