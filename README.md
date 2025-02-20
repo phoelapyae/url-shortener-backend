@@ -28,14 +28,14 @@ PORT=8000
 HOST=http://localhost:8000
 ```
 
-5. Seed the database:
-```bash
-npm run db:seed
-```
-
-6. Testing the application
+5. Testing the application
 ```bash
 npm run test
+```
+
+6. Seed the database:
+```bash
+npm run db:seed
 ```
 
 7. Start the development server:
