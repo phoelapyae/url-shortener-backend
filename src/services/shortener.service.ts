@@ -3,8 +3,8 @@ import URL from "../models/shortener";
 import { nanoid } from "../utils/nanoid";
 const HOST = process.env.HOST as string;
 
-const urlList = () => {
-    return URL.findAll({ order: [['createdAt', 'DESC']] });
+const urlList = async () => {
+    return await URL.findAll({ order: [['createdAt', 'DESC']] });
 }
 
 const getById = async (id: string) => {
@@ -21,7 +21,6 @@ const getByLongUrl = async (long_url: string) => {
 
 const createUrl = async (long_url: string) => {
     const short_url = nanoid();
-
     return await URL.create({ short_url, long_url });
 }
 
@@ -41,8 +40,12 @@ const checkAndGenerateUrl = async (data: any, long_url: string) => {
     }
 }
 
-const deleteById = (id: string) => {
-   return URL.destroy({where: { id }});
+const deleteById = async(id: string) => {
+    const deletedUrl = await URL.destroy({ where: { id } });
+
+    if (deletedUrl) {
+        return { 'message': 'Deleted url successfully.' }
+    }
 }
 
 const redirectUrl = (res: Response, url: any) => {
