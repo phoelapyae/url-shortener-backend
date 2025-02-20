@@ -23,7 +23,7 @@ cp .env.example .env
 
 4. Update .env with your credentials
 ```
-DATABASE_URL=postgres://postgres:password@localhost:5432/shortener
+DATABASE_URL=postgres://<postgres-username>:<postgres-password>@localhost:5432/shortener
 PORT=8000
 HOST=http://localhost:8000
 ```
