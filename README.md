@@ -33,7 +33,12 @@ HOST=http://localhost:8000
 npm run db:seed
 ```
 
-6. Start the development server:
+6. Testing the application
+```bash
+npm run test
+```
+
+7. Start the development server:
 ```bash
 npm run dev
 ```

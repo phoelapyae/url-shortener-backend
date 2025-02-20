@@ -54,7 +54,7 @@ const handleCheckUrl = (url: string) => {
         {
             reject({
                 "status": 400,
-                "error": "Invalid url.",
+                "error": "Requested long_url is not valid.",
             });
         }
         else

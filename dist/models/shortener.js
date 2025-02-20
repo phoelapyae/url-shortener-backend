@@ -16,7 +16,7 @@ URL.init({
     short_url: {
         type: sequelize_1.DataTypes.STRING,
         allowNull: false,
-        unique: true
+        unique: true,
     },
     long_url: {
         type: sequelize_1.DataTypes.STRING,
