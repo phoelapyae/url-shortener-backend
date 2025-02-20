@@ -31,7 +31,7 @@ const GenerateUrl = async (req: Request, res: Response) => {
     handleCheckUrl(long_url).then(() => getByLongUrl(long_url))
         .then((data) => checkAndGenerateUrl(data, long_url))
         .then((data) => handleSuccess(res, data))
-        .catch((error) => handleError(res, error));
+        .catch((error) => handleError(res, error, 400));
 }
 
 const DeleteUrl = async (req: Request, res: Response) => {

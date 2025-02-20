@@ -4,7 +4,7 @@ import { nanoid } from "../utils/nanoid";
 const HOST = process.env.HOST as string;
 
 const urlList = () => {
-    return URL.findAll();
+    return URL.findAll({ order: [['createdAt', 'DESC']] });
 }
 
 const getById = async (id: string) => {
