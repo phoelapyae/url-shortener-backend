@@ -26,7 +26,7 @@ const createUrl = async (long_url: string) => {
 }
 
 const generateUrl = (url: { short_url: string }) => {
-    return `${HOST}/${url.short_url}`
+    return `${HOST}/api/${url.short_url}`
 }
 
 const checkAndGenerateUrl = async (data: any, long_url: string) => {

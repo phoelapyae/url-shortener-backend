@@ -49,4 +49,4 @@ The api server will run at http://localhost:8000
 - `GET /api/shorteners` - List all the urls
 - `POST /api/shorteners` - Generate a new short url
 - `DELETE /api/shorteners/:id` - Delete a url
-- `GET /api/shorteners/:short_url` - Redirect to full url
+- `GET /api/:short_url` - Redirect to full url
